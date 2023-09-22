@@ -38,15 +38,18 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'rest_framework.authtoken',
+    'django.contrib.sites',
     'corsheaders',
     'todoapp',
 ]
+
 SITE_ID = 1
 
 CORS_ALLOW_CREDENTIALS = True
-CSRF_TRUSTED_ORIGINS = ['https://8000-jodymurray-djangoprojec-31tvcdjtjx0.ws-eu104.gitpod.io','https://*.127.0.0.1']
-
-
+CSRF_TRUSTED_ORIGINS = [
+    'https://8000-jodymurray-djangoprojec-31tvcdjtjx0.ws-eu104.gitpod.io', 'https://*.127.0.0.1']
 
 
 CORS_ALLOWED_ORIGINS = [
