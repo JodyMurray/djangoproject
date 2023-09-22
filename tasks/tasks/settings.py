@@ -45,6 +45,12 @@ INSTALLED_APPS = [
     'todoapp',
 ]
 
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny',
+    ]
+}
+
 SITE_ID = 1
 
 CORS_ALLOW_CREDENTIALS = True

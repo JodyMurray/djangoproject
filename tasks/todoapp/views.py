@@ -1,25 +1,22 @@
+from rest_framework import generics, viewsets
 from django.shortcuts import render
-from rest_framework.views import APIView
-from . models import *
-from rest_framework.response import Response
-from . serializers import TasksSerializer
+from todoapp import models
+from .serializers import TasksSerializer
 
 
-class ReactView(APIView):
-
+class ListTodo(generics.ListCreateAPIView):
+    queryset = models.Task.objects.all()
     serializer_class = TasksSerializer
 
-    def get(self, request):
-        detail = [{"name": detail.name, "detail": detail.detail}
-                  for detail in React.objects.all()]
-        return Response(detail)
 
-    def post(self, request):
+class DetailTodo(generics.RetrieveUpdateDestroyAPIView):
+    queryset = models.Task.objects.all()
+    serializer_class = TasksSerializer
 
-        serializer = ReactSerializer(data=request.data)
-        if serializer.is_valid(raise_exception=True):
-            serializer.save()
-            return Response(serializer.data)
+
+class TodoViewSet(viewsets.ModelViewSet):
+    queryset = models.Task.objects.all()
+    serializer_class = TasksSerializer
 
 
 def todoappView(request):

@@ -1,7 +1,12 @@
 from rest_framework import serializers
-from . models import *
-  
+from todoapp import models
+
+
 class TasksSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Task
-        fields = ['title', 'description']
+        fields = (
+            'title',
+            'description',
+            'complete',
+        )
+        model = models.Task

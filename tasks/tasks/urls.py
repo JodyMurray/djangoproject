@@ -19,5 +19,5 @@ from todoapp.views import todoappView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('todoapp.urls')),
+    path('task/v1/', include('todoapp.urls')),
 ]
