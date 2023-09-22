@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-6)7vpx978%xuldbyl0(xg$jk6keqb8f%wuo*0!!e1sp*^rw-pg
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*', 'localhost']
 
 
 # Application definition
@@ -38,13 +38,28 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
     'todoapp',
+]
+SITE_ID = 1
+
+CORS_ALLOW_CREDENTIALS = True
+CSRF_TRUSTED_ORIGINS = ['https://8000-jodymurray-djangoprojec-31tvcdjtjx0.ws-eu104.gitpod.io','https://*.127.0.0.1']
+
+
+
+
+CORS_ALLOWED_ORIGINS = [
+
+    'http://localhost:8080',
+    'https://*.127.0.0.1',
 ]
 
 MIDDLEWARE = [
+    "corsheaders.middleware.CorsMiddleware",
+    "django.middleware.common.CommonMiddleware",
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
