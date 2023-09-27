@@ -75,10 +75,12 @@ JWT_AUTH_COOKIE = 'my-app-auth'
 JWT_AUTH_SECURE = True
 JWT_AUTH_REFRESH_COOKIE = 'my-refresh-token'
 
+JWT_AUTH_SAMESITE = 'None'
+
 
 CORS_ALLOW_CREDENTIALS = True
 CSRF_TRUSTED_ORIGINS = [
-    'https://8000-jodymurray-djangoprojec-31tvcdjtjx0.ws-eu104.gitpod.io', 'https://*.127.0.0.1']
+    'https://8000-jodymurray-djangoprojec-31tvcdjtjx0.ws-eu104.gitpod.io', 'https://8000-jodymurray-djangoprojec-31tvcdjtjx0.ws-eu105.gitpod.io', 'https://*.127.0.0.1']
 
 
 CORS_ALLOWED_ORIGINS = [

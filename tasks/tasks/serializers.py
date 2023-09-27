@@ -3,7 +3,8 @@ from rest_framework import serializers
 from .models import Task
 
 
-class TodoSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Task
-        fields = ('title', 'description', 'complete')
+class CurrentUserSerializer(UserDetailsSerializer):
+    profile_id = serializers.ReadOnlyField(source='profile.id')
+    profile_image = serializers.ReadOnlyField(source='profile.image.url')
+    class Meta(UserDetailsSerializer.Meta):
+        fields = UserDetailsSerializer.Meta.fields + ('title', 'description')
